@@ -1,2 +1,2 @@
-CPU Utilization factor: 20.2073
-System is Overloaded zone! (>100%)
+CPU Utilization factor: 0.257333
+System is Unnecessarily safe! (under 26%)

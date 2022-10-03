@@ -9,7 +9,7 @@
 int main()
 {
     std::ifstream arq_factors;
-    arq_factors.open("/home/lucas-damo/template-ic/cpp-project-template-ic-main/datafactors.txt", std::ios::in);
+    arq_factors.open("./data/factors.txt", std::ios::in);
     if (!arq_factors.is_open())
     {
         std::cout << "unable to open file";
@@ -45,7 +45,7 @@ int main()
     }
 
     std::ofstream arq_coef;
-    arq_coef.open("/home/lucas-damo/template-ic/cpp-project-template-ic-main/data/coef.txt", std::ios::out);
+    arq_coef.open("./data/coef.txt", std::ios::out);
     if (!arq_coef.is_open())
     {
         std::cout << "unable to open file";
