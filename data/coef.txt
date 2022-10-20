@@ -1,2 +1,0 @@
-CPU Utilization factor: 0.257333
-System is Unnecessarily safe! (under 26%)
