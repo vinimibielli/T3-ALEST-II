@@ -9,6 +9,7 @@ private:
     Nodo *head;
     Nodo *tail;
     int size;
+
 public:
     ListaDuplamenteEncadeada();
     void addTail(char letra);
@@ -18,11 +19,12 @@ public:
     void removeHead();
     void removeMiddle(Nodo *nodo);
     void print();
-    char getHead();
-    char getTail();
+    char getHeadChar();
+    char getTailChar();
+    Nodo *getHead();
+    Nodo *getTail();
     bool isEmpty();
     int getSize();
-
 };
 
 #endif

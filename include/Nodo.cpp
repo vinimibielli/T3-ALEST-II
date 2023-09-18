@@ -38,8 +38,3 @@ void Nodo::setPrev(Nodo *prev)
 {
     this->prev = prev;
 }
-
-char Nodo::getLetra()
-{
-    return this->letra;
-}

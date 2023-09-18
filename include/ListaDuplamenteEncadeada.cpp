@@ -124,24 +124,35 @@ void ListaDuplamenteEncadeada::removeTail()
 
 void ListaDuplamenteEncadeada::removeMiddle(Nodo *nodo)
 {
+    
     if (this->head == nullptr)
     {
         return;
     }
-    else if (this->head == this->tail)
+    if(this->head == nodo){
+        removeHead();
+        return;
+    }
+    if(this->tail == nodo){
+        removeTail();
+        return;
+    }
+
+    if (this->head == this->tail)
     {
         delete this->head;
         this->head = nullptr;
         this->tail = nullptr;
         this->size--;
+        return;
     }
     else
     {
-        Nodo *nodoAux = nodo;
-        nodoAux->getPrev()->setNext(nodoAux->getNext());
-        nodoAux->getNext()->setPrev(nodoAux->getPrev());
-        delete nodoAux;
+        nodo->getPrev()->setNext(nodo->getNext());
+        nodo->getNext()->setPrev(nodo->getPrev());
+        delete nodo;
         this->size--;
+        return;
     }
 }
 
@@ -150,7 +161,7 @@ void ListaDuplamenteEncadeada::print()
     Nodo *nodoAux = this->head;
     while (nodoAux != nullptr)
     {
-        std::cout << nodoAux->getLetra() << " ";
+        std::cout << nodoAux->getLetra();
         nodoAux = nodoAux->getNext();
     }
     std::cout << std::endl;
@@ -171,12 +182,22 @@ int ListaDuplamenteEncadeada::getSize()
     return this->size;
 }
 
-char ListaDuplamenteEncadeada::getHead()
+char ListaDuplamenteEncadeada::getHeadChar()
 {
     return this->head->getLetra();
 }
 
-char ListaDuplamenteEncadeada::getTail()
+char ListaDuplamenteEncadeada::getTailChar()
 {
     return this->tail->getLetra();
+}
+
+Nodo *ListaDuplamenteEncadeada::getHead()
+{
+    return this->head;
+}
+
+Nodo *ListaDuplamenteEncadeada::getTail()
+{
+    return this->tail;
 }
