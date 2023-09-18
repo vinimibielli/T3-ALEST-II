@@ -22,3 +22,4 @@ $(OUTPUTDIR)/$(PROGRAM_NAME): $(SOURCE_FILES) $(HEADER_FILES)
 clean:
 	$(Q)rm -rf $(OUTPUTDIR)/$(PROGRAM_NAME)
 
+#run the simulator
