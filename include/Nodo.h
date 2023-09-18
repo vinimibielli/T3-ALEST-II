@@ -7,6 +7,7 @@ private:
     Nodo *next;
     Nodo *prev;
     char letra;
+    int quantidade;
 public:
     Nodo();
     Nodo(char letra);
@@ -15,6 +16,9 @@ public:
     char getLetra();
     void setNext(Nodo *next);
     void setPrev(Nodo *prev);
+    int getQuantidade();
+    void setQuantidade(int quantidade);
+    void QuantidadeMais();
 };
 
 #endif

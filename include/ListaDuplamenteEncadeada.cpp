@@ -122,18 +122,20 @@ void ListaDuplamenteEncadeada::removeTail()
     }
 }
 
-void ListaDuplamenteEncadeada::removeMiddle(Nodo *nodo)
+void ListaDuplamenteEncadeada::remove(Nodo *nodo)
 {
-    
+
     if (this->head == nullptr)
     {
         return;
     }
-    if(this->head == nodo){
+    if (this->head == nodo)
+    {
         removeHead();
         return;
     }
-    if(this->tail == nodo){
+    if (this->tail == nodo)
+    {
         removeTail();
         return;
     }
@@ -161,7 +163,9 @@ void ListaDuplamenteEncadeada::print()
     Nodo *nodoAux = this->head;
     while (nodoAux != nullptr)
     {
-        std::cout << nodoAux->getLetra();
+        for(int i = 0; i < nodoAux->getQuantidade(); i++){
+            std::cout << nodoAux->getLetra();
+        }
         nodoAux = nodoAux->getNext();
     }
     std::cout << std::endl;
@@ -169,10 +173,12 @@ void ListaDuplamenteEncadeada::print()
 
 bool ListaDuplamenteEncadeada::isEmpty()
 {
-    if(getSize() == 0){
+    if (getSize() == 0)
+    {
         return true;
     }
-    else{
+    else
+    {
         return false;
     }
 }
@@ -200,4 +206,19 @@ Nodo *ListaDuplamenteEncadeada::getHead()
 Nodo *ListaDuplamenteEncadeada::getTail()
 {
     return this->tail;
+}
+
+void ListaDuplamenteEncadeada::editTail(int quantidade)
+{
+    this->tail->setQuantidade(quantidade);
+}
+
+void ListaDuplamenteEncadeada::editHead(int quantidade)
+{
+    this->head->setQuantidade(quantidade);
+}
+
+void ListaDuplamenteEncadeada::editTailSoma()
+{
+    this->tail->QuantidadeMais();
 }

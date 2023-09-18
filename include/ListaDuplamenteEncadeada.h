@@ -17,7 +17,7 @@ public:
     void addMiddle(int posicao, char letra);
     void removeTail();
     void removeHead();
-    void removeMiddle(Nodo *nodo);
+    void remove(Nodo *nodo);
     void print();
     char getHeadChar();
     char getTailChar();
@@ -25,6 +25,9 @@ public:
     Nodo *getTail();
     bool isEmpty();
     int getSize();
+    void editTail(int quantidade);
+    void editHead(int quantidade);
+    void editTailSoma();
 };
 
 #endif

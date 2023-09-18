@@ -5,6 +5,7 @@ Nodo::Nodo()
     this->letra = ' ';
     this->next = nullptr;
     this->prev = nullptr;
+    this->quantidade = 1;
 }
 
 Nodo::Nodo(char letra)
@@ -12,6 +13,7 @@ Nodo::Nodo(char letra)
     this->letra = letra;
     this->next = nullptr;
     this->prev = nullptr;
+    this->quantidade = 1;
 }
 
 Nodo *Nodo::getNext()
@@ -37,4 +39,19 @@ void Nodo::setNext(Nodo *next)
 void Nodo::setPrev(Nodo *prev)
 {
     this->prev = prev;
+}
+
+int Nodo::getQuantidade()
+{
+    return this->quantidade;
+}
+
+void Nodo::setQuantidade(int quantidade)
+{
+    this->quantidade = quantidade;
+}
+
+void Nodo::QuantidadeMais()
+{
+    this->quantidade++;
 }
