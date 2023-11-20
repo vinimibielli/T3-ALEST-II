@@ -2,9 +2,7 @@
 #define Grafo_h
 #include <map>
 #include <vector>
-#include "math_Integer.h"
-#include "math_Rational.h"
-#include "math_Unsigned.h"
+
 
 class Grafo
 {
