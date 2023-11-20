@@ -6,7 +6,7 @@
 #include "math_Integer.h"
 #include "math_Rational.h"
 #include "math_Unsigned.h"
-#define caso "data\\casoc240.txt"
+#define caso "data\\casoc360.txt"
 
 int main()
 {
@@ -17,6 +17,7 @@ int main()
     std::string linha;
     std::vector<std::pair<std::string, int>> conjunto;
     std::pair<std::string, int> elementos;
+    std::pair<std::vector<std::pair<std::string, int>>, math::Integer> quant;
     bool aux = false;
 
     casos.open(caso); // Abre o arquivo para leitura
@@ -54,7 +55,9 @@ int main()
                 }
             }
         }
-        grafo.addGrafo(palavra, conjunto);
+        quant.first = conjunto;
+        quant.second = 0;
+        grafo.addGrafo(palavra, quant);
         conjunto.clear();
     }
 

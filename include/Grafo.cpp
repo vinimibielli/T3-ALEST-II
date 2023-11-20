@@ -7,13 +7,13 @@ Grafo::Grafo()
 {
 }
 
-void Grafo::addGrafo(std::string elemento, std::vector<std::pair<std::string, int>> receita)
+void Grafo::addGrafo(std::string elemento, std::pair<std::vector<std::pair<std::string, int>>, math::Integer> receita)
 {
 
     if (lista.empty())
     {
         lista.push_back(elemento);
-        grafo.insert(std::pair<std::string, std::vector<std::pair<std::string, int>>>(elemento, receita));
+        grafo.insert(std::pair<std::string, std::pair<std::vector<std::pair<std::string, int>>, math::Integer>>(elemento, receita));
     }
     else
     {
@@ -23,29 +23,41 @@ void Grafo::addGrafo(std::string elemento, std::vector<std::pair<std::string, in
             {
 
                 lista.push_back(elemento);
-                grafo.insert(std::pair<std::string, std::vector<std::pair<std::string, int>>>(elemento, receita));
+                grafo.insert(std::pair<std::string, std::pair<std::vector<std::pair<std::string, int>>, math::Integer>>(elemento, receita));
             }
             else
             {
-                it->second.insert(it->second.end(), receita.begin(), receita.end());
+                it->second.first.insert(it->second.first.end(), receita.first.begin(), receita.first.end());
             }
         }
     }
 }
 
-unsigned long long int Grafo::getQuantidade(std::string elemento)
+math::Integer Grafo::getQuantidade(std::string elemento)
 {
-    int64_t quantidade = 0;
-    int64_t quantidadeAux = 0;
-    std::vector<std::pair<std::string, int>> aux = grafo[elemento];
 
-    for (int i = 0; i < aux.size(); i++)
+    math::Integer quantidade = 0;
+
+    if(grafo[elemento].second != 0)
     {
-        if (aux[i].first == "hidrogenio")
-        {
-            return aux[i].second;
-        }
-        quantidade += aux[i].second * getQuantidade(aux[i].first);
+        return grafo[elemento].second;
     }
+
+    for (auto componente : grafo[elemento].first)
+    {
+        
+            if (componente.first == "hidrogenio")
+            {
+                // std::cout << "hidrogenio" << std::endl;
+                return componente.second;
+            }
+            else
+            {
+                // std::cout << componente.first << std::endl;
+                quantidade += componente.second * getQuantidade(componente.first);
+            }
+        
+    }
+    grafo[elemento].second = quantidade;
     return quantidade;
 }
